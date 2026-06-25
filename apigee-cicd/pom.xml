@@ -1,0 +1,49 @@
+    4.0.0
+
+    com.example.apigee
+    helloworld-proxy
+    1.0.0
+    pom
+    Hello World API Proxy
+
+    
+        2.4.4
+        
+        override
+    
+
+    
+        
+            eval
+            
+                google
+                https://apigee.googleapis.com
+                v1
+                
+            
+        
+    
+
+    
+        
+            io.apigee.build-tools.enterprise4g
+            apigee-deploy-maven-plugin
+            ${apigee.plugin.version}
+            
+                
+                    configure-bundle
+                    package
+                    
+                        configure
+                    
+                
+                
+                    deploy-bundle
+                    deploy
+                    
+                        deploy
+                    
+                
+            
+        
+    
