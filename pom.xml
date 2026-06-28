@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+                             http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.example.apigee</groupId>
+    <artifactId>helloworld-proxy</artifactId>
+    <version>1.0.0</version>
+    <packaging>pom</packaging>
+    <name>Hello World API Proxy</name>
+
+    <properties>
+        <apigee.plugin.version>2.4.4</apigee.plugin.version>
+        <!-- Override via -Dapigee.options=update to update existing without undeploying -->
+        <apigee.options>override</apigee.options>
+    </properties>
+
+    <profiles>
+        <!--
+            Apigee X / Hybrid — eval environment
+            Usage: mvn deploy -P eval -Dapigee.org=YOUR_PROJECT -Dapigee.env=eval
+        -->
+        <profile>
+            <id>eval</id>
+            <properties>
+                <apigee.api>google</apigee.api>
+                <apigee.hosturl>https://apigee.googleapis.com</apigee.hosturl>
+                <apigee.apiversion>v1</apigee.apiversion>
+                <!-- apigee.org and apigee.env are passed in via -D flags or env vars -->
+            </properties>
+        </profile>
+    </profiles>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>io.apigee.build-tools.enterprise4g</groupId>
+                <artifactId>apigee-deploy-maven-plugin</artifactId>
+                <version>${apigee.plugin.version}</version>
+                <executions>
+                    <execution>
+                        <id>configure-bundle</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>configure</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>deploy-bundle</id>
+                        <phase>deploy</phase>
+                        <goals>
+                            <goal>deploy</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+</project>
