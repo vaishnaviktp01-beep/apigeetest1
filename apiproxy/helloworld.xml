@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<APIProxy revision="1" name="helloworld">
+    <Description>Hello World API Proxy</Description>
+    <DisplayName>Hello World</DisplayName>
+    <Policies>
+        <Policy>AM-SetResponse</Policy>
+    </Policies>
+    <ProxyEndpoints>
+        <ProxyEndpoint>default</ProxyEndpoint>
+    </ProxyEndpoints>
+    <TargetEndpoints/>
+</APIProxy>
