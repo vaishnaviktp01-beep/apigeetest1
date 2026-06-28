@@ -42,4 +42,4 @@ jobs:
         with:
           name: apigee-proxy-bundle
           path: target/*.zip
-          retention-days: 2
+          retention-days: 10
